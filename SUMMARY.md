@@ -1,0 +1,2 @@
+- [Humanities 📚](Humanities/)
+- [Computing 💻](Computing/)

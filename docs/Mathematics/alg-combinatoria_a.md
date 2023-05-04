@@ -1,16 +1,17 @@
 # Combinatoria 1
 
-## Reglas de la suma y del producto
+## Reglas aditivas
+
 Si hay $n(A)$ maneras de hacer $A$ y $n(B)$ maneras de hacer $B$, siendo
 mutuamente independientes, entonces: 
 
 - *Regla de la suma*: el número de maneras de hacer $A$ o $B$ es $n(A) + n(B)$.
 - *Regla del producto*: el número de maneras de hacer $A$ y $B$ es $n(A) * n(B)$.
 
-## Funciones básicas
 
-### Permutaciones
-Una *permutación* es un arreglo de $r$ objetos tomados de un conjunto de $n$
+## Permutaciones
+
+Una **permutación** es un arreglo de $r$ objetos tomados de un conjunto de $n$
 objetos. El orden importa. El número de permutaciones posibles es:
 
 $$P(n, k) = \frac{n!}{(n-k)!}$$
@@ -21,13 +22,13 @@ entonces existen $\frac{n!}{n_1! n_2! \dots n_k}$ disposiciones (lineales) de
 los $n$ objetos dados. Los objetos del mismo tipo son indistinguibles.
 
 
-### Combinaciones
+## Combinaciones
 
-Una *combinación* es cualquier subconjunto de $k$ objetos tomados de un
-conjunto de $n$ objetos. El orden no importa. El número de combinaciones
-posibles es:
+El **coeficiente binomial** $C(n, k)$ es cualquier subconjunto de $k$ elementos
+tomado de un conjunto con $n$ elementos. El orden no importa. Su número está
+dado por la formula:
 
-$$C(n, k) = \binom{n}{k} = \frac{P(n, k)}{k!}$$
+$$C(n, k) = \binom{n}{k} = \frac{n!}{k!(n - k)!} = \frac{P(n, k)}{k!}$$
 
 El **conjunto potencia** de un conjunto $A$, $\rho(A)$, es el conjunto que
 incluye todos los posibles subconjuntos de $A$. Su cardinalidad se calcula
@@ -53,5 +54,5 @@ $$\begin{aligned}
 $$\log(a, b, p) = \begin{cases}
     0 \quad &, a = 1 \\
     x \quad &, p = 0 \\
-    x + \log( , b, p-1) \div 10 \\
+    x + \frac{\log( , b, p-1)}{10} \\
 \end{cases} \:\text{where}\: x = \mathrm{BiPLE}(b, a)$$

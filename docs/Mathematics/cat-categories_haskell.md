@@ -23,16 +23,25 @@ and does not qualify as compositional.
 ## Definitions
 
 A Category is a two-sorted structure that encodes the
-algebra of composition. It has
+algebra of composition. It has:
+
 - objects
 - arrows
 - each pair of composable arrows has a composite arrow.
 - each object has an *identity arrow* for which the
     composition operation is *associative* and *unital*.
 
-> Isomorphism invariance principle: If 'A' and 'B' are
-> isomorphic then every category theoretic property of 'A'
-> is also true of 'B'
+```mermaid
+flowchart LR  
+    A((A)) -->|f| B((B))
+    B -->|g| C((C))
+    A -->|g * f|C
+    C -->|e|C
+```
+
+> Isomorphism invariance principle: If $A$ and $B$ are
+> isomorphic then every category theoretic property of $A$
+> is also true of $B$
 
 ### Examples of categories
 

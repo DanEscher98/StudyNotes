@@ -2,7 +2,7 @@
 
 ## Reglas aditivas
 
-Si hay $n(A)$ maneras de hacer $A$ y $n(B)$ maneras de hacer $B$, siendo
+Si hay $n(A)$ maneras de hacer $A$ y $n(B)$ maneras de hacer $B$, siendo éstas
 mutuamente independientes, entonces: 
 
 - *Regla de la suma*: el número de maneras de hacer $A$ o $B$ es $n(A) + n(B)$.

@@ -1,6 +1,6 @@
 ---
-title: Thoughs about Monads
-author: Daniel Sanchez
+title: Thoughts about Monads
+author: Danyiel Colin
 ---
 
 ## Applications of Monads

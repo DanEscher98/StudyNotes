@@ -1,6 +1,9 @@
-La herbolaria no es una farmacologia sin metodo, es una practica.
+# Lo básico del fungi
 
-Hongos
+> La herbolaria no es una farmacologia sin método, es una practica.
+
+## Tipos de Hongos
+
 - patogenos y parasitarios
 - comestibles
 - psicoactivos

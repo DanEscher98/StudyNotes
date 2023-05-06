@@ -48,10 +48,9 @@ flowchart LR
 - The category Set: objects are (finite) **sets** and arrows
     are **functions**.
 - The syntactic category for some programming languages:
-    objects are **types** and arrows are **programs**.
-
-> The categorical imperative "programs should form a
-> category" leads to the notion of **monad**.
+    objects are **types** and arrows are **programs**. The categorical
+    imperative "programs should form a category" leads to the notion of
+    **monad**.
 
 
 ## Category Laws

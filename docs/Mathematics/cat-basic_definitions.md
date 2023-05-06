@@ -11,7 +11,7 @@ author: Daniel Sanchez
 - A *semigroup*, *monoid* or *group* is a kind of algebra with
     a defined binary operator $\ast$
 
-| if $\ast$     | Semigroup | Monoid    | Group     | Abelian | 
+| if $\:\ast$     | Semigroup | Monoid    | Group     | Abelian | 
 |:-----         | :-----:   | :-----:   | :-----:   | :-----: | 
 |is closed      |   **T**   |   **T**   |   **T**   |   **T** | 
 |is associative |   **T**   |   **T**   |   **T**   |   **T** | 
@@ -20,10 +20,10 @@ author: Daniel Sanchez
 |is commutative |   ?       |   ?       |   ?       |   **T** | 
 
 ## Examples
-- Z, Q, R and C are abelian groups under addition,
-    and abelian monoids under multiplication, because the
-    $0$ doesn't have inverse.
-- The set of all $2 x 2$ matrices with real entries
+- $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$ are *abelian
+  groups* under addition, and *abelian monoids* under multiplication, because
+  the $0$ doesn't have inverse.
+- The set of all $2 \times 2$ matrices with real entries
     form a monoid under multiplication (many singular matrices).
 - The dihedral group:
     $D_4 = \{I, R, R^2, R^3, T_x, T_y , T_{1,3}, T_{2,4}\}$
@@ -37,7 +37,7 @@ author: Daniel Sanchez
     1. Identity 
         `fmap id == id`
     2. Composition 
-        `fmap (f.g) == (fmap f) . (fmap g)`
+        `fmap (f . g) == (fmap f) . (fmap g)`
     3. Structure preservation 
         `fmap :: Functor f => (a -> b) -> f a -> f b`
 
@@ -66,6 +66,9 @@ author: Daniel Sanchez
 - These are similar to the *monoid laws*, but generalized
     for multiple types defined inside the monad. This sort
     of structure is called a *category* in mathematics.
+- A monad in $\mathcal{X}$ is just a monoid in the category of endofunctors of
+  $\mathcal{X}$, with product $\times$ replaced by composition of endofunctors
+  and unit set by the identity endofunctor.
 
 ## Summarize
 - **Functors** are types for containers where we can `map`

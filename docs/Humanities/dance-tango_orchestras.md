@@ -1,4 +1,4 @@
-# Main tango orchestras by composer
+# Main tango orchestras
 
 ## Francisco Canaro (1888-1964)
 

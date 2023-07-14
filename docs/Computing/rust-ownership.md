@@ -10,19 +10,16 @@ self        // Value (owner change)
 ```
 
 ## Ownership rules
-
 1. Each value in `Rust` has a variable that's called its owner.
 2. There can only be one owner at a time.
 3. When the owner goes out of scope, the value will be dropped.
 
-## The Rules of References
-
+## Borrow rules
 1. At any given time, you can have either one mutable reference or any
    number of immutable references.
 2. References must always be valid.
 
-## Lifetime rules
-
+## Lifetime's elision rules
 1. Each parameter that is a reference gets its own lifetime parameter.
 2. If there is exactly one input lifetime parameter, that lifetime is
    assigned to all output lifetime parameters.

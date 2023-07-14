@@ -16,11 +16,7 @@ expected, a language must support the concept of higher kinded types.
 
 There are 3 keywords in "higher kinded types":
 
-- **Higher**: The "higher" prefix is derived from the phrase "higher order". In
-  terms of programming, it usually refers to a function that can at least take
-  other functions as input, or return functions as output. However I think in
-  this case, the prefix has become more general, and refers to a form of
-  recursive containment. Basically it's the idea that a type could contain
+- **Higher**: The "higher" prefix is derived from the phrase "higher order". In terms of programming, it usually refers to a function that can at least take other functions as input, or return functions as output. However I think in this case, the prefix has become more general, and refers to a form of recursive containment. Basically it's the idea that a type could contain
   other types. See concepts like "higher order messages". This makes sense, and
   seems to define they very concept of type constructors and/or recursive data
   structures. Here we use the word "contain" to mean parameterisation of things

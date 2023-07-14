@@ -1,6 +1,4 @@
----
-title: Collected Lambda Calculus Functions
----
+# Collected Lambda Calculus Functions
 
 ## Collected Lambda Calculus Functions
 
@@ -341,7 +339,5 @@ list).
 -   [Wikipedia: B,C,K,W
     system](http://en.wikipedia.org/wiki/B,C,K,W_system)
 
-[Main Page](index.html)
 
 \$Id: lambda.html,v 1.3 2014/06/23 01:42:31 jwodder Exp jwodder \$
-:::

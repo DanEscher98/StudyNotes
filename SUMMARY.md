@@ -1,2 +1,5 @@
 - [Humanities 📚](Humanities/)
 - [Computing 💻](Computing/)
+- [Craftship](Craftship/)
+- [Mathematics](Mathematics/)
+- [Science](Science/)

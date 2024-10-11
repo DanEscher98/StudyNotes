@@ -65,5 +65,45 @@ $$\begin{aligned}
     \text{Meronym}(x) &\leftrightarrow \text{Holonym}(y)  \text{ where } x \text{ is a part of } y \\
 \end{aligned}$$
 
+Using modal logic:
+
+$$\begin{aligned}
+    \text{Child} &\rightarrow \Box\text{Parent} \\
+    \text{Hyponym} &\rightarrow \Box\text{Hypernym}
+\end{aligned}$$
+
+
+## Functional
+
+Connections between two concepts where one concept invokes or
+expects the existence of the other. They are directional and
+dependent. Consider the following examples:
+
+$$f: X \rightarrow {Y, \emptyset}$$
+
+- A **question** seeks an **answer**. However, not al questions have
+valid or clear answers without context. $f(question) = answer$,
+where $f$ is a *partial function* that may return a valid answer
+if the context allows.
+
+- A **cause** brings about an **effect**. Some causes may have
+predictable effects, while others might have multiple or
+unforeseen outcomes.
+
+- A **lock** functionally requires a **key** to perform its role
+(locking/unlocking).
+
+$$\begin{aligned}
+    \text{Request}(x) &\rightarrow \diamond\text{Fulfillment}(y) \\
+    \text{Stimulus}(x) &\rightarrow \diamond\text{Response}(y) \\
+    \text{Question}(x) &\rightarrow \diamond\text{Answer}(y) \\
+\end{aligned}$$
+
+
+## NOTES
+
+- Homonymy (equal) is co-hyponym of paronymy (similar).
+- Antonymy (opposite) is the antonym of synonymy (equivalent)
+
 
 

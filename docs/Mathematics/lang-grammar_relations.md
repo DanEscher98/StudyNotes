@@ -79,7 +79,7 @@ Connections between two concepts where one concept invokes or
 expects the existence of the other. They are directional and
 dependent. Consider the following examples:
 
-$$f: X \rightarrow {Y, \emptyset}$$
+$$f: X \rightarrow \{Y, \emptyset \}$$
 
 - A **question** seeks an **answer**. However, not al questions have
 valid or clear answers without context. $f(question) = answer$,

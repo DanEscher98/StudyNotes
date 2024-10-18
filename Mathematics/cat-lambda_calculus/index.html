@@ -1,0 +1,1981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de temas estudiados">
+      
+      
+        <meta name="author" content="Danyiel Colin">
+      
+      
+      
+        <link rel="prev" href="../cat-higher_kinded_types/">
+      
+      
+        <link rel="next" href="../cat-monad/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>Collected Lambda Calculus Functions - Study Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Libre Baskerville";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#collected-lambda-calculus-functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Study Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Collected Lambda Calculus Functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DanEscher98/StudyNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DanEscher98/StudyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Study Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DanEscher98/StudyNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DanEscher98/StudyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paraefatio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/algo-bigO_notation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Big O Notation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/algo-fibonacci_heaps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Heaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/cc_notes.01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bugs in code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/cpp-basic_pointers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pointers in C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/hs-monadic_operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Haskell's basic Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/hs-syntactic_sugar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntactic Sugar in Haskell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/hs-thoughts_monads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thoughts about Monads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/lowlv-memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/lowlv-multiprocessing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/rust-keywords/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust Keywords
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/rust-ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust Ownership
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/rust-smartptr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust Smart Pointers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/rust-stdlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust Standard Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/rust-tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computing/syscalls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SysCalls
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Finances
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Finances
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Finances/acct-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accountability: Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Humanities
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Humanities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Humanities/gramatica_fantasia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gramática de la Fantasía - Rodari
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Humanities/poesia_reglas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Formas de verso rimado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Humanities/tango_orchestras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Main tango orchestras by composer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Humanities/tango_paola_class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tango practice with Paola
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Humanities/tp-lexical_categories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toki Pona: Lexicographic classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mathematics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alg-combinatoria_a/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinatoria 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cat-basic_definitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definitions of Abstract Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cat-categories_haskell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Categories in Haskell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cat-functor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functors and Applicatives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cat-higher_kinded_types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Higher-Kinded Types (HKT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Collected Lambda Calculus Functions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Collected Lambda Calculus Functions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collected-lambda-calculus-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collected Lambda Calculus Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collected Lambda Calculus Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-combinators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Combinators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Combinators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#natural-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booleans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numeric Comparison Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pairs-and-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pairs and Lists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cat-monad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monads introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cat-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memoization (in terms of set theory)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lang-grammar_relations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Language: grammar relations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Science
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Science/bio-basic_fungi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lo básico del fungi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Web3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Web3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web3/icp-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ICP Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web3/web3-common_terms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common terms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web3/web3-proof_of_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proof of X
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web3/web3_comparative/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchains comparative
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collected-lambda-calculus-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collected Lambda Calculus Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collected Lambda Calculus Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-combinators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Combinators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Combinators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#natural-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Natural Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booleans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numeric Comparison Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pairs-and-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pairs and Lists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/DanEscher98/StudyNotes/edit/master/docs/Mathematics/cat-lambda_calculus.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/DanEscher98/StudyNotes/raw/master/docs/Mathematics/cat-lambda_calculus.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Collected Lambda Calculus Functions</h1>
+
+<h2 id="collected-lambda-calculus-functions">Collected Lambda Calculus Functions<a class="headerlink" href="#collected-lambda-calculus-functions" title="Permanent link">&para;</a></h2>
+<p>The following is a small collection of functions in the <a href="http://en.wikipedia.org/wiki/Lambda_calculus">untyped lambda
+calculus</a> which I feel are
+noteworthy for one reason or another, either by relevance to the
+foundations of lambda calculus (such as the combinators and natural
+numbers) or by utility to people who wish to actively make use of this
+<a href="http://en.wikipedia.org/wiki/Turing_tarpit">Turing tarpit</a>. Some of
+them are taken from Wikipedia (which tends to be very reliable on
+mathematical issues), while others (primarily the list functions) I
+derived myself.</p>
+<p>Unless explicitly noted otherwise, natural numbers, booleans, pairs &amp;
+lists, and all functions for dealing with them use the Church encodings
+of their values. Operations on other types (e.g., negative or
+non-integral numbers) are not defined, and if the reader desires them,
+he must construct such types and the operations on them himself
+(possibly with the use of pairs acting as typed unions). Additionally,
+functions for operating on numbers, lists, etc. are only meant for use
+on those types; if a value of the wrong type is supplied (e.g., if a
+list is passed to [SUCC]{.L}) or a non-Church encoded value is used, the
+results are undefined.</p>
+<h3 id="common-combinators">Common Combinators<a class="headerlink" href="#common-combinators" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[K := λxy. x ≡ X (X (X X)) ≡ X′ X′ X′]{.L}</li>
+<li>[S := λxyz. (x z) (y z) ≡ X (X (X (X X))) ≡ X K ≡ X′ (X′ X′) ≡ B (B (B W) C) (B B)]{.L}</li>
+<li>[I := λx. x ≡ S K S ≡ S K K ≡ X X]{.L}</li>
+<li>[X := λx. x S K]{.L} &mdash; also called [ι]{.L} (iota)</li>
+<li>[X′ := λx. x K S K]{.L}</li>
+<li>[B := λxyz. x (y z) ≡ S (K S) K]{.L} &mdash; function composition</li>
+<li>[C := λxyz. x z y ≡ S (S (K (S (K S) K)) S) (K K)]{.L}</li>
+<li>[W := λxy. x y y ≡ S S (K (S K K))]{.L}</li>
+<li>[Y := λg. (λx. g (x x)) (λx. g (x x)) ≡ S (K (S I I)) (S (S (K S) K) (K (S I I)))]{.L}</li>
+<li>[Y′ := (λxy. x y x) (λyx. y (x y x)) ≡ S S K (S (K (S S (S (S S K)))) K)]{.L}</li>
+<li>[Θ := (λxy. y (x x y)) (λxy. y (x x y))]{.L} &mdash; called the "Turing fixed-point combinator"</li>
+<li>[ω := λx. x x ≡ S I I]{.L}</li>
+<li>[Ω := ω ω]{.L}</li>
+<li>
+<p>[Ω<sub>2</sub> := (λx. x x x) (λx. x x x)]{.L}</p>
+<p>A fixed point combinator is any function [F]{.L} for which [F g ≡ g
+(F g)]{.L} for all [g]{.L}; examples include [Y]{.L}, [Y′]{.L}, and
+[Θ]{.L}. Since lambda calculus functions cannot refer to themselves
+by name, fixed point combinators are needed to implement recursion.
+For example, the factorial function can be implemented using [f :=
+λgx. ISZERO x 1 (MULT x (g (PRED x)))]{.L}, which takes a function
+[g]{.L} and a number [x]{.L}; if [x]{.L} is not zero, it is
+multiplied by the result of [g (PRED x)]{.L}. Defining [FACTORIAL :=
+Y f]{.L} (or [Y′ f]{.L} or [Θ f]{.L}) means that [FACTORIAL x ≡ Y f
+x ≡ f (Y f) x]{.L}, and so [f]{.L} is able to recurse on itself
+indefinitely.</p>
+</li>
+</ul>
+<h4 id="natural-numbers">Natural Numbers<a class="headerlink" href="#natural-numbers" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[0 := λfx. x]{.L}</li>
+<li>[1 := λfx. f x]{.L}</li>
+<li>[2 := λfx. f (f x)]{.L}</li>
+<li>[3 := λfx. f (f (f x))]{.L}</li>
+<li>[4 := λfx. f (f (f (f x)))]{.L}</li>
+<li>[5 := λfx. f (f (f (f (f x))))]{.L}</li>
+<li><em>et cetera</em></li>
+</ul>
+<h4 id="mathematical-operators">Mathematical Operators<a class="headerlink" href="#mathematical-operators" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>The successor operator (given a natural number [n]{.math}, calculate
+    [n+1]{.math}):</p>
+<p>::: L
+SUCC := λnfx. f (n f x)
+:::
+-   The predecessor operator (for all [n &gt; 0]{.math}, calculate
+[n-1]{.math}; for zero, return zero):</p>
+<hr />
+<p>PRED   :=   λnfx. n (λgh. h (g f)) (λu. x) (λu. u)
+         ≡    λn. n (λgk. ISZERO (g 1) k (PLUS (g k) 1)) (λv. 0) 0
+         ≡    λn. CAR (n (λx. PAIR (CDR x) (SUCC (CDR x))) (PAIR 0 0))</p>
+<hr />
+<ul>
+<li>Addition:</li>
+</ul>
+<hr />
+<p>PLUS   :=   λmnfx. n f (m f x)
+         ≡    λmn. n SUCC m</p>
+<hr />
+<ul>
+<li>Subtraction &mdash; [SUB m n]{.L} evaluates to [m - n]{.math} if [m &gt;
+n]{.math} and to zero otherwise:</li>
+</ul>
+<p>::: L
+SUB := λmn. n PRED m
+:::
+-   Multiplication:</p>
+<hr />
+<p>MULT   :=   λmnf. m (n f)
+         ≡    λmn. m (PLUS n) 0
+         ≡    B</p>
+<hr />
+<ul>
+<li>Division &mdash; [DIV a b]{.L} evaluates to a pair of two numbers, [a
+idiv b]{.math} and [a mod b]{.math}:</li>
+</ul>
+<p>::: L
+DIV := Y (λgqab. LT a b (PAIR q a) (g (SUCC q) (SUB a b) b)) 0
+:::
+-   Integer division:</p>
+<p>::: L
+IDIV := λab. CAR (DIV a b)
+:::
+-   Modulus:</p>
+<p>::: L
+MOD := λab. CDR (DIV a b)
+:::
+-   Exponentiation ([EXP a b ≡ a<sup>b</sup>]{.L}):</p>
+<p>::: L
+EXP := λab. b a ≡ C I
+:::
+-   Factorial:</p>
+<hr />
+<p>FACTORIAL   :=   Y (λgx. ISZERO x 1 (MULT x (g (PRED x))))
+              ≡    λn. Y (λgax. GT x n a (g (MUL a x) (SUCC x))) 1 1
+              ≡    λn. n (λfax. f (MUL a x) (SUCC x)) K 1 1</p>
+<hr />
+<ul>
+<li>Fibonacci numbers &mdash; [FIBONACCI n]{.L} evaluates to the [n]{.L}-th
+Fibonacci number:</li>
+</ul>
+<p>::: L
+FIBONACCI := λn. n (λfab. f b (PLUS a b)) K 0 1
+:::
+-   Greatest common divisor/highest common factor:</p>
+<p>::: L
+GCD := (λgmn. LEQ m n (g n m) (g m n)) (Y (λgxy. ISZERO y x (g y
+(MOD x y))))
+:::</p>
+</li>
+</ul>
+<h4 id="booleans">Booleans<a class="headerlink" href="#booleans" title="Permanent link">&para;</a></h4>
+<p>Given a boolean value [b]{.L}, the expression [b t f]{.L} will evaluate
+to [t]{.L} if [b]{.L} is true and to [f]{.L} if [b]{.L} is false. This
+allows conditional expressions to be written simply as a condition
+applied directly to the two possible results without the need for an
+[IF]{.L} function.</p>
+<ul>
+<li>[TRUE := λxy. x ≡ K]{.L}</li>
+<li>[FALSE := λxy. y ≡ 0 ≡ λx. I ≡ K I ≡ S K ≡ X (X X)]{.L}</li>
+<li>[AND := λpq. p q p]{.L}</li>
+<li>[OR := λpq. p p q]{.L}</li>
+<li>[XOR := λpq. p (NOT q) q]{.L}</li>
+<li>[NOT := λpab. p b a ≡ λp. p FALSE TRUE]{.L}</li>
+</ul>
+<h4 id="numeric-comparison-operators">Numeric Comparison Operators<a class="headerlink" href="#numeric-comparison-operators" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Test whether a number is zero:</p>
+<p>::: L
+ISZERO := λn. n (λx. FALSE) TRUE
+:::
+-   Less than:</p>
+<p>::: L
+LT := λab. NOT (LEQ b a)
+:::
+-   Less than or equal to:</p>
+<p>::: L
+LEQ := λmn. ISZERO (SUB m n)
+:::
+-   Equal to:</p>
+<p>::: L
+EQ := λmn. AND (LEQ m n) (LEQ n m)
+:::
+-   Not equal to:</p>
+<p>::: L
+NEQ := λab. OR (NOT (LEQ a b)) (NOT (LEQ b a))
+:::
+-   Greater than or equal to:</p>
+<p>::: L
+GEQ := λab. LEQ b a
+:::
+-   Greater than:</p>
+<p>::: L
+GT := λab. NOT (LEQ a b)
+:::</p>
+</li>
+</ul>
+<h4 id="pairs-and-lists">Pairs and Lists<a class="headerlink" href="#pairs-and-lists" title="Permanent link">&para;</a></h4>
+<p>Pairs and lists are structured the same way that they are in Lisp and
+its relatives: a pair is made up of two components, called the <em>car</em> and
+the <em>cdr</em>, and a list is either [NIL]{.L} (the empty list) or a pair
+whose cdr is another list (and whose car is an element of the enclosing
+list).</p>
+<ul>
+<li>
+<p>[PAIR x y]{.L} &mdash; create a pair with a car of [x]{.L} and a cdr of
+    [y]{.L}; also called [CONS]{.L}:</p>
+<p>::: L
+PAIR := λxyf. f x y
+:::
+-   [CAR p]{.L} &mdash; get the car of pair [p]{.L}; also called [FIRST]{.L}
+or [HEAD]{.L}:</p>
+<p>::: L
+CAR := λp. p TRUE
+:::
+-   [CDR p]{.L} &mdash; get the cdr of pair [p]{.L}; also called
+[SECOND]{.L}, [TAIL]{.L}, or [REST]{.L}:</p>
+<p>::: L
+CDR := λp. p FALSE
+:::
+-   The empty list:</p>
+<p>::: L
+NIL := λx. TRUE
+:::
+-   [NULL p]{.L} &mdash; evaluates to [TRUE]{.L} if [p]{.L} is [NIL]{.L} or
+to [FALSE]{.L} if [p]{.L} is a normal pair (all other types are
+undefined):</p>
+<p>::: L
+NULL := λp. p (λxy. FALSE)
+:::</p>
+</li>
+</ul>
+<h4 id="list-functions">List Functions<a class="headerlink" href="#list-functions" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Concatenate two lists:</p>
+<p>::: L
+APPEND := Y (λgab. NULL a b (PAIR (CAR a) (g (CDR a) b)))
+:::
+-   Calculate the length of a list:</p>
+<p>::: L
+LENGTH := Y (λgcx. NULL x c (g (SUCC c) (CDR x))) 0
+:::
+-   [INDEX x i]{.L} &mdash; evaluates to the [i]{.L}-th (zero-based) element
+of list [x]{.L}, assuming that [x]{.L} has at least [i+1]{.math}
+elements:</p>
+<p>::: L
+INDEX := λxi. CAR (i CDR x)
+:::
+-   Get the last element in a list:</p>
+<p>::: L
+LAST := Y (λgx. NULL x NIL (NULL (CDR x) (CAR x) (g (CDR x))))
+:::
+-   Get a list without its last element:</p>
+<p>::: L
+TRUNCATE := Y (λgx. NULL x NIL (NULL (CDR x) NIL (PAIR (CAR x) (g
+(CDR x)))))
+:::
+-   Reverse a list:</p>
+<p>::: L
+REVERSE := Y (λgal. NULL l a (g (PAIR (CAR l) a) (CDR l))) NIL
+:::
+-   [RANGE s e]{.L} &mdash; evaluates to a list of all natural numbers from
+[s]{.L} up through [e]{.L}, or to [NIL]{.L} when [s &gt; e]{.math}.</p>
+<p>::: L
+RANGE := λse. Y (λgc. LEQ c e (PAIR c (g (SUCC c) e)) NIL) s
+:::
+-   [LIST n a<sub>0</sub> a<sub>1</sub> ... a<sub>n-1</sub>]{.L} &mdash; evaluates to [a<sub>0</sub> ...
+a<sub>n-1</sub>]{.L} as a list</p>
+<p>::: L
+LIST := λn. n (λfax. f (PAIR x a)) REVERSE NIL
+:::
+-   [APPLY f x]{.L} &mdash; passes the elements of the list [x]{.L} to
+[f]{.L}:</p>
+<p>::: L
+APPLY := Y (λgfx. NULL x f (g (f (CAR x)) (CDR x)))
+:::
+-   [MAP f x]{.L} &mdash; maps each element of the list [x]{.L} through
+[f]{.L}:</p>
+<p>::: L
+MAP := Y (λgfx. NULL x NIL (PAIR (f (CAR x)) (g f (CDR x))))
+:::
+-   [FILTER f x]{.L} &mdash; evaluates to a list of all [e]{.L} in the list
+[x]{.L} for which [f e]{.L} is [TRUE]{.L} (assuming that [f]{.L}
+returns only [TRUE]{.L} or [FALSE]{.L} for all elements of [x]{.L}):</p>
+<p>::: L
+FILTER := Y (λgfx. NULL x NIL (f (CAR x) (PAIR (CAR x)) I (g f (CDR
+x))))
+:::
+-   [CROSS f l m]{.L} &mdash; evaluates to a list of all values of [f a
+b]{.L} where [a]{.L} is in the list [l]{.L} and [b]{.L} is in the
+list [m]{.L}. To obtain the Cartesian cross product of [l]{.L} and
+[m]{.L}, supply [PAIR]{.L} (or a similar function) for [f]{.L}.</p>
+<p>::: L
+CROSS := λflm. FOLD-LEFT APPEND NIL (MAP (λx. MAP (f x) m) l)
+:::
+-   [FOLD-LEFT f e x]{.L} &mdash; Apply [f a]{.L} to each element of the
+list [x]{.L}, where [a]{.L} is the result of the previous
+application (or [e]{.L} for the first application) and return the
+result of the last application:</p>
+<p>::: L
+FOLD-LEFT := Y (λgfex. NULL x e (g f (f e (CAR x)) (CDR x)))
+:::
+-   [FOLD-RIGHT f e x]{.L} &mdash; Apply [(λy. f y a)]{.L} to each element
+of the list [x]{.L} in reverse order, where [a]{.L} is the result of
+the previous application (or [e]{.L} for the first application) and
+return the result of the last application:</p>
+<p>::: L
+FOLD-RIGHT := λfex. Y (λgy. NULL y e (f (CAR y) (g (CDR y)))) x
+:::</p>
+</li>
+</ul>
+<h4 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>[GET n i a<sub>0</sub> a<sub>1</sub> ... a<sub>n-1</sub> =<sup>β</sup> a<sub>i</sub>]{.L}:</p>
+<p>::: L
+GET := λni. i K (SUB n (SUCC i) K)
+:::</p>
+</li>
+</ul>
+<h4 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Lambda_calculus">Wikipedia: Lambda
+    calculus</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Combinatory_logic">Wikipedia: Combinatory
+    logic</a></li>
+<li><a href="http://en.wikipedia.org/wiki/SKI_combinator_calculus">Wikipedia: SKI combinator
+    calculus</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Fixed_point_combinator">Wikipedia: Fixed point
+    combinator</a></li>
+<li><a href="http://en.wikipedia.org/wiki/B,C,K,W_system">Wikipedia: B,C,K,W
+    system</a></li>
+</ul>
+<p><a href="index.html">Main Page</a></p>
+<p>$Id: lambda.html,v 1.3 2014/06/23 01:42:31 jwodder Exp jwodder $
+:::</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../cat-higher_kinded_types/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Higher-Kinded Types (HKT)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Higher-Kinded Types (HKT)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cat-monad/" class="md-footer__link md-footer__link--next" aria-label="Next: Monads introduction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Monads introduction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2023 Danyiel Colin
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "content.action.view", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
